@@ -20,14 +20,8 @@ module Salesloft
     end
 
     def people(opts = {})
-      res = parse_response(self.class.get('/v2/people', options.merge(opts)))
-      Salesloft::Person.parse_raw_data(res['data'])
-    end
-
-    private
-
-    def parse_response(response)
-      JSON.parse(response)
+      response = self.class.get('/v2/people', options.merge(opts))
+      Salesloft::Person.parse_raw_data(response['data'])
     end
   end
 end

@@ -1,6 +1,9 @@
 def mock_people
   # TODO Add mock for valid and invalid requests
   stub_request(:get, 'https://api.salesloft.com/v2/people').to_return(
+    headers: {
+      content_type: 'application/json; charset=utf-8'
+    },
     body: {
       'data' => [
         {
