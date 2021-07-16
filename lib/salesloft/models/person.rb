@@ -17,5 +17,9 @@ module Salesloft
         )
       end
     end
+
+    def to_hash
+      { 'name' => name, 'email' => email, 'job_title' => job_title }
+    end
   end
 end

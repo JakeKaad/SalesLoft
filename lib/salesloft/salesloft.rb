@@ -20,6 +20,12 @@ module Salesloft
     end
 
     def people(opts = {})
+      @people ||= get_people(opts)
+    end
+
+    private
+
+    def get_people(opts)
       response = self.class.get('/v2/people', options.merge(opts))
       Salesloft::Person.parse_raw_data(response['data'])
     end
