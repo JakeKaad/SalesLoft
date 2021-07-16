@@ -1,4 +1,4 @@
-class PeopleController < Api::BaseController
+class Api::PeopleController < Api::BaseController
   before_action :authorize_request
 
   def index
