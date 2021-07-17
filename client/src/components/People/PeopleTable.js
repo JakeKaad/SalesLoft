@@ -13,11 +13,11 @@ const PeopleTable = ({ people }) => (
     </THead>
     <tbody>
       {people
-        ? people.map((user, i) => (
+        ? people.map(({ name, email, jobTitle }, i) => (
             <tr key={i}>
-              <TableCell> {user.name} </TableCell>
-              <TableCell> {user.email} </TableCell>
-              <TableCell> {user.job_title} </TableCell>
+              <TableCell> {name} </TableCell>
+              <TableCell> {email} </TableCell>
+              <TableCell> {jobTitle} </TableCell>
             </tr>
           ))
         : null}

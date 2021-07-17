@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { letterCounter } from '../../utils'
 import { Table, THead, HeaderCell, TableCell } from './TableStyles'
 

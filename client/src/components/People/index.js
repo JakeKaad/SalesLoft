@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import PeopleTable from './PeopleTable'
 import Letters from './Letters'
+import Duplicates from './Duplicates'
 
 const Button = styled.button`
   background-color: #4caf50; /* Green */
@@ -22,6 +23,8 @@ const renderPeopleSwitch = (param, { people }) => {
   switch (param) {
     case 'LetterCounter':
       return <Letters people={people} />
+    case 'Duplicates':
+      return <Duplicates people={people} />
     default:
       return <PeopleTable people={people} />
   }
@@ -32,12 +35,13 @@ const People = () => {
   const [pageSwitch, setPageSwitch] = useState('People')
 
   people || fetchPeople(setPeople)
-
+  console.log(people)
   return (
     <div>
       <div>
-        <Button onClick={() => setPageSwitch('People')}>People </Button>
-        <Button onClick={() => setPageSwitch('LetterCounter')}>Letters </Button>
+        <Button onClick={() => setPageSwitch('People')}>People</Button>
+        <Button onClick={() => setPageSwitch('LetterCounter')}>Letters</Button>
+        <Button onClick={() => setPageSwitch('Duplicates')}>Duplicates</Button>
       </div>
       <div>{renderPeopleSwitch(pageSwitch, { people })}</div>
     </div>
