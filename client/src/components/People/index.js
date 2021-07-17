@@ -35,9 +35,11 @@ const People = () => {
 
   return (
     <div>
-      <Button onClick={() => setPageSwitch('People')}>People </Button>
-      <Button onClick={() => setPageSwitch('LetterCounter')}>Letters </Button>
-      {renderPeopleSwitch(pageSwitch, { people })}
+      <div>
+        <Button onClick={() => setPageSwitch('People')}>People </Button>
+        <Button onClick={() => setPageSwitch('LetterCounter')}>Letters </Button>
+      </div>
+      <div>{renderPeopleSwitch(pageSwitch, { people })}</div>
     </div>
   )
 }

@@ -3,6 +3,12 @@ class Api::PeopleController < Api::BaseController
 
   def index
     people = salesloft_client.people
+
+    #TODO This should either be done if param[:detect_duplicates] is passed,
+    # or handled by its own controller action. This could be resource intensive
+    # with large query volume.. also should be abstracted away from pagination
+    # Which this index will likely have.
+    Salesloft::Person.detect_duplicates(people)
     render json: people.map(&:to_hash)
   end
 
